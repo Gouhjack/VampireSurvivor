@@ -39,6 +39,7 @@ public class ShootPatern : StateMachineBehaviour
             //_rgb2D.velocity = direction * Time.fixedDeltaTime * 50;
             _bullet.GetComponent<Rigidbody2D>().velocity = direction * _speed;
             _bullet.transform.parent = GameObject.Find("BulletGroup").transform;
+            Destroy(_bullet, 1);
             
         }
 

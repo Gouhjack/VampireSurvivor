@@ -37,8 +37,7 @@ public class EnnemyBehaviour : MonoBehaviour
        
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         _animator.SetBool("isDead", true);
-        yield return new WaitForSeconds(2);
-        StartCoroutine(EnemyDeath());
+        yield return new WaitForSeconds(2);        
         Destroy(gameObject);
         
         killCounterScript.AddKills();

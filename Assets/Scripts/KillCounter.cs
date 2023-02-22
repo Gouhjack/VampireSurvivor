@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class KillCounter : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class KillCounter : MonoBehaviour
 
     public TextMeshProUGUI _counterText;
     public int _kills;
+    
+    
+    
 
 
     #endregion
@@ -46,6 +50,17 @@ public class KillCounter : MonoBehaviour
         _kills++;
     }
 
+    public void ShowButton()
+    {
+        if (_kills == 10)
+        {
+            Time.timeScale = 0;
+            
+
+        }
+
+
+    }
 
     #endregion
 
