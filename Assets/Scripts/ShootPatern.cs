@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
@@ -41,14 +42,14 @@ public class ShootPatern : StateMachineBehaviour
             
         }
 
-        Destroy(_bullet, 2);
+        //Destroy(_bullet, 2);
     }
 
+      
 
 
 
 
-    
 }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
