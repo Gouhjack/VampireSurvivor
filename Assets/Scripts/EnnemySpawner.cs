@@ -9,9 +9,11 @@ public class EnnemySpawner : MonoBehaviour
     [SerializeField]
     private float _spawnInterval;
     [SerializeField] private float _spawnRadius = 7;
+    KillCounter _killCounter;
 
     void Start()
     {
+        
         StartCoroutine(SpawnEnemy(_spawnInterval, _enemyPrefab));
     }
 
@@ -29,5 +31,17 @@ public class EnnemySpawner : MonoBehaviour
         //GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-25f, 25), Random.Range(-26f, 26), 0), Quaternion.identity);
         GameObject newEnemy = Instantiate(enemy, spawnPos, Quaternion.identity);
         StartCoroutine(SpawnEnemy(interval, enemy));
+        if (_killCounter._kills == 15)
+        {
+            interval = interval - 0.3f;
+        }
+        else if (_killCounter._kills == 40)
+        {
+            interval = interval - 0.3f;
+        }
+        else if (_killCounter._kills == 65)
+        {
+            interval = interval - 0.5f;
+        }
     }
 }
