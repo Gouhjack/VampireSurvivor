@@ -2,24 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class ShootPatern : StateMachineBehaviour
 {
-    public GameObject _bulletPrefab;
+    [SerializeField] public GameObject _bulletPrefab;
     public float m_fireRate = 1.5f;
     private float _nexTimeToShoot;
-    public GameObject _bullet;
-    public float _speed = 2;
+    public static GameObject _bullet;
+    public  float _speed = 2;
     public UnityEngine.Transform _playerTransform;
     public RewardManager rwMana;
-    public Animator animator;
+    public static Animator animator;
+
+
+    
 
     private void Awake()
     {
         rwMana = GameObject.Find("RewardManager").GetComponent<RewardManager>();
         
     }
+
+
+    public static void DoubleShot()
+    {
+        var Shot = new ShootPatern();
+        //Il y a 50 % de chance que le joueur tire une seconde fois.
+        // Génère un nombre aléatoire entre 0 et 1
+        float randomNum = Random.Range(0f, 1f);
+
+         //  // Vérifie si le nombre aléatoire est supérieur ou égal à 0.5
+         //  if (randomNum >= 0.5f)
+         //  {
+         //  Shot.Attack();
+         //      // Fait quelque chose
+         //      Debug.Log("Je fais quelque chose !");
+         //  }
+         //  else
+         //  {
+         //      // Ne fait rien
+         //      Debug.Log("Je ne fais rien.");
+         //  }
+
+
+
+    }
+
+    
+
 
     public void Attack()
     {
@@ -72,6 +104,7 @@ public class ShootPatern : StateMachineBehaviour
             
         }
 
+        rwMana.MonEvent2.Invoke();
         //Destroy(_bullet, 2);
     }
 
@@ -91,7 +124,7 @@ public class ShootPatern : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        rwMana.MonEvent2.Invoke();
+        
 
 
     }

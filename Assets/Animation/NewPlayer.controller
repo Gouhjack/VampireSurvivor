@@ -69,9 +69,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 2705809737379859648, guid: eb2ca003cdb1b0c4eb84e2193d5a491a, type: 3}
   m_fireRate: 1
-  _bullet: {fileID: 2705809737379859648, guid: eb2ca003cdb1b0c4eb84e2193d5a491a, type: 3}
-  _speed: 50
+  _speed: 30
   _playerTransform: {fileID: 0}
+  rwMana: {fileID: 0}
 --- !u!1101 &-2053011445898983524
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

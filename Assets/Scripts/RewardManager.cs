@@ -16,10 +16,10 @@ public class RewardManager : MonoBehaviour
 
 
     public EventVector3 MonEvent;
-    public UnityEvent MonEvent2;
+    
     [SerializeField] public GameObject bonusProjectilePrefab;
     [SerializeField] public float bonusProjectileSpeed = 10;
-
+    public UnityEvent MonEvent2;
 
     public void Start()
     {
@@ -28,15 +28,7 @@ public class RewardManager : MonoBehaviour
     }
 
 
-    public static void DoubleShot()
-    {
-        //Il y a 50 % de chance que le joueur tire une seconde fois.
-
-        Debug.Log("Double balle");
-        
-
-
-    }
+   
 
     public void BonusBullet(Vector3 position)
     {
@@ -64,16 +56,16 @@ public class RewardManager : MonoBehaviour
 
     }
 
-
-
-
     public void ClickEffect2()
     {
         Debug.Log("Effect2");
-        MonEvent2.AddListener(DoubleShot);
+        MonEvent2.AddListener(ShootPatern.DoubleShot);
         Time.timeScale = 1;
 
 
     }
+
+
+
 
 }

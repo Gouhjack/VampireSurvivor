@@ -16,7 +16,7 @@ public class EnemyDeathPatern : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
        
-        rwMana.MonEvent2.Invoke();
+        
         
     }
 
