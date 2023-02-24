@@ -49,12 +49,29 @@ public class KillCounter : MonoBehaviour
     public void AddKills()
     {
         _kills++;
-        if (_kills == 1)
+        if (_kills == 10)
         {
             Time.timeScale = 0;
             BoostsPannel.SetActive(true);
 
         }
+        else if (_kills == 30) 
+        {
+            Time.timeScale = 0;
+            BoostsPannel.SetActive(true);
+        }
+        else if (_kills == 60)
+        {
+            Time.timeScale = 0;
+            BoostsPannel.SetActive(true);
+        }
+        else if (_kills == 100)
+        {
+            Time.timeScale = 0;
+            BoostsPannel.SetActive(true);
+        }
+
+
     }
 
     
