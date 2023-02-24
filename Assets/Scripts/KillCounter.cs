@@ -11,8 +11,8 @@ public class KillCounter : MonoBehaviour
 
     public TextMeshProUGUI _counterText;
     public int _kills;
-    
-    
+    public GameObject BoostsPannel;
+    [SerializeField] public AnimationCurve _killCurve;
     
 
 
@@ -21,7 +21,7 @@ public class KillCounter : MonoBehaviour
     #region Unity LifeCycle
     void Start()
     {
-        
+        //BoostsPannel = GameObject.FindGameObjectWithTag("Pannel");
     }
 
     void Update()
@@ -29,6 +29,7 @@ public class KillCounter : MonoBehaviour
 
 
         ShowKills();
+        
 
 
     }
@@ -48,19 +49,15 @@ public class KillCounter : MonoBehaviour
     public void AddKills()
     {
         _kills++;
-    }
-
-    public void ShowButton()
-    {
-        if (_kills == 10)
+        if (_kills == 1)
         {
             Time.timeScale = 0;
-            
+            BoostsPannel.SetActive(true);
 
         }
-
-
     }
+
+    
 
     #endregion
 

@@ -194,3 +194,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 4332294965854427564}
   isDead: 0
+  MonEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  bonusProjectilePrefab: {fileID: 2705809737379859648, guid: eb2ca003cdb1b0c4eb84e2193d5a491a, type: 3}
+  bonusProjectileSpeed: 10

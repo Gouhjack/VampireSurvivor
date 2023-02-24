@@ -2,20 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnnemyBehaviour : MonoBehaviour
 {
+
+
     public Animator _animator;
     public bool isDead = false;
-    
     KillCounter killCounterScript;
+    RewardManager rwMana;
 
-    
+
+
 
     private void Start()
     {
         killCounterScript = GameObject.Find("KCO").GetComponent<KillCounter>();
-        
+        rwMana = GameObject.Find("RewardManager").GetComponent<RewardManager>();
     }
 
 
@@ -25,6 +29,7 @@ public class EnnemyBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(collision.gameObject);
+            rwMana.MonEvent.Invoke(transform.position);
             StartCoroutine(EnemyDeath());
             
             
@@ -34,13 +39,19 @@ public class EnnemyBehaviour : MonoBehaviour
 
     private IEnumerator EnemyDeath()
     {
-       
+        
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         _animator.SetBool("isDead", true);
-        yield return new WaitForSeconds(2);        
-        Destroy(gameObject);
+        Debug.Log(rwMana.MonEvent);
         
+        yield return new WaitForSeconds(1);
+        
+        Destroy(gameObject);
         killCounterScript.AddKills();
 
     }
+
+
+
+
 }

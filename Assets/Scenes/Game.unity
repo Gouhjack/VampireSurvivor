@@ -484,6 +484,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121890bc304f7f54b9628d770aad3481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MonEvent2:
+    m_PersistentCalls:
+      m_Calls: []
+  bonusProjectilePrefab: {fileID: 2705809737379859648, guid: eb2ca003cdb1b0c4eb84e2193d5a491a, type: 3}
+  bonusProjectileSpeed: 10
 --- !u!1 &466038515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,11 +1106,11 @@ GameObject:
   - component: {fileID: 901080385}
   m_Layer: 5
   m_Name: BoostsPannel
-  m_TagString: Untagged
+  m_TagString: Pannel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &901080384
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1250,13 +1255,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 465102168}
+        m_TargetAssemblyTypeName: RewardManager, Assembly-CSharp
+        m_MethodName: ClickEffect1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 901080383}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1604,6 +1621,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _counterText: {fileID: 2052404830}
   _kills: 0
+  BoostsPannel: {fileID: 901080383}
+  _killCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1564956922
 Transform:
   m_ObjectHideFlags: 0
@@ -1702,7 +1726,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2045002008}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465102168}
+        m_TargetAssemblyTypeName: RewardManager, Assembly-CSharp
+        m_MethodName: ClickEffect2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 901080383}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2045002008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2017,6 +2065,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 233219335506852131, guid: ac0940bf88a84b243885797a21afbfb6, type: 3}
+      propertyPath: MonEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 233219335506852131, guid: ac0940bf88a84b243885797a21afbfb6, type: 3}
+      propertyPath: MonEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 233219335506852131, guid: ac0940bf88a84b243885797a21afbfb6, type: 3}
+      propertyPath: MonEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2699707227085304211, guid: ac0940bf88a84b243885797a21afbfb6, type: 3}
       propertyPath: GameOverScreen
       value: 

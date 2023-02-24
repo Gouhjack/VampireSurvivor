@@ -12,11 +12,40 @@ public class ShootPatern : StateMachineBehaviour
     public GameObject _bullet;
     public float _speed = 2;
     public UnityEngine.Transform _playerTransform;
+    public RewardManager rwMana;
+    public Animator animator;
 
     private void Awake()
     {
+        rwMana = GameObject.Find("RewardManager").GetComponent<RewardManager>();
         
     }
+
+    public void Attack()
+    {
+        Vector2[] _directions = new Vector2[4]
+{
+        Vector2.right,
+        Vector2.left,
+        Vector2.up,
+        Vector2.down
+};
+
+
+
+        foreach (var direction in _directions)
+        {
+
+            _bullet = Instantiate(_bulletPrefab, animator.gameObject.transform.position, Quaternion.identity);
+            //_nexTimeToShoot = Time.timeSinceLevelLoad + m_fireRate;
+            //_rgb2D.velocity = direction * Time.fixedDeltaTime * 50;
+            _bullet.GetComponent<Rigidbody2D>().velocity = direction * _speed;
+            _bullet.transform.parent = GameObject.Find("BulletGroup").transform;
+            Destroy(_bullet, 1);
+
+        }
+    }
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -51,7 +80,7 @@ public class ShootPatern : StateMachineBehaviour
 
 
 
-}
+
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -60,20 +89,22 @@ public class ShootPatern : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        rwMana.MonEvent2.Invoke();
 
-    // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
 
-    // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
+    }
+}
+// OnStateMove is called right after Animator.OnAnimatorMove()
+//override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+//{
+//    // Implement code that processes and affects root motion
+//}
+
+// OnStateIK is called right after Animator.OnAnimatorIK()
+//override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+//{
+//    // Implement code that sets up animation IK (inverse kinematics)
+//}
 
